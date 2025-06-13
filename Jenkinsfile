@@ -1,38 +1,47 @@
 pipeline {
     agent any
-
+    tools {
+        nodejs 'Node18' // Use Node.js version configured in Jenkins
+    }
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your/repo.git'
+                git url: 'https://github.com/your-username/my-static-site.git', branch: 'main'
             }
         }
-
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Lint') {
+            steps {
+                sh 'npx eslint *.js || true' // Run ESLint, continue on failure
+                sh 'npx stylelint **/*.css' // Run Stylelint for CSS
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Nothing to build for HTML/CSS'
+                sh 'mkdir -p dist && cp *.html *.css dist/' // Copy files to a dist folder
             }
         }
-
         stage('Deploy') {
             steps {
-                sh '''
-                mkdir -p /tmp/html-site
-                cp -r * /tmp/html-site/
-                cd /tmp/html-site
-                python3 -m http.server 8081 &
-                '''
+                // Example: Deploy to a local server or Netlify
+                sh 'echo "Deploying to hosting service..."'
+                // Add deployment steps (see Step 6)
             }
         }
-
-        stage('Ngrok') {
-            steps {
-                sh '''
-                ./ngrok http 8081 > /dev/null &
-                sleep 5
-                curl 127.0.0.1:4040/api/tunnels
-                '''
-            }
+    }
+    post {
+        always {
+            cleanWs() // Clean workspace
+        }
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed.'
         }
     }
 }
