@@ -1,0 +1,24 @@
+{
+  "name": "banhang",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinhFresher/test1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MinhFresher/test1/issues"
+  },
+  "homepage": "https://github.com/MinhFresher/test1#readme",
+  "description": "",
+  "devDependencies": {
+    "eslint": "^9.28.0",
+    "stylelint": "^16.20.0"
+  }
+}
