@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="Profile.css">
+</head>
+<body>
+    <header>
+        <div class="Logo">
+            <a href="Home.html"> <img src="image/logo.png" alt="logo"></a>
+             <h3>Dat Studio</h3>
+        </div>
+
+        <div class="Action">
+            <div class="task">
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Store.html">Store</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+
+            <div class="Cart">
+                <a href="Cart.html"><h4> Your cart</h4> </a>
+                <img src="image/cart.svg" alt="">
+            </div>
+
+            <div class="login">
+                <a href="Profile.html"><h4 >Profile</h4></a>
+                <img src="image/profile.png" alt="">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <nav>
+            <div class="choice" onclick="showForm('profile')">Profile</div>
+            <div class="choice" onclick="showForm('order')">Order History</div>
+            <div class="choice" onclick="showForm('payment')">Payment review</div>
+        </nav>
+
+        <div id="profile" class="form" style="display:none;">Profile Content
+            <h4 class="name"><img src="image/profile.png">Your name</h4>
+            <input placeholder="Your name" type="text">
+            <input type="date">
+            <button>Apply</button>
+        </div>
+        <div id="order" class="form" style="display:none;">Order History Content
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>23/02/2025</td>
+                    <td>Delivered</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>03/03/2025</td>
+                    <td>On Going!</td>
+                </tr>
+            </table>
+        </div>
+        <div id="payment" class="form" style="display:none;">Payment Content
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>Date</th>
+                    <th>SAmount</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>23/02/2025</td>
+                    <td>14.999.000d</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>03/03/2025</td>
+                    <td>5.000.000d</td>
+                </tr>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <h3>Về DatStudio</h3>
+            <p>Giới thiệu</p>
+            <p>Tuyển dụng</p>
+            <p>Liên hệ</p>
+        </div>
+        <div>
+            <h3>Chính sách</h3>
+            <p>Chính sách bảo hành</p>
+            <p>Chính sách giao hàng</p>
+            <p>Chính sách bảo mật</p>
+        </div>
+        <div>
+            <h3>Thông tin</h3>
+            <p>Hệ thống cửa hàng</p>
+            <p>Hướng dẫn mua hàng</p>
+            <p>Hướng dẫn thanh toán</p>
+            <p>Hướng dẫn trả góp</p>
+        </div>
+        <div>
+            <h3>Hỗ trợ</h3>
+            <p>Mua hàng: <b>1900.5301</b></p>
+            <p>Bảo hành: <b>1900.5325</b></p>
+            <p>Kiếu nại: <b>1800.6173</b></p>
+            <p>Email: <b>cskh@dst.com</b></p>
+        </div>
+    </footer>
+
+
+</body>
+<script>
+    function showForm(formId) {
+        document.querySelectorAll('.form').forEach(form => form.style.display = 'none');
+        document.getElementById(formId).style.display = 'flex';
+    }
+</script>
+</html>
